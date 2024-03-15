@@ -16,7 +16,7 @@ const Form = () => {
     e.preventDefault();
     try{
       const user = {email}
-      const res = await axios.post(`http://localhost:3000/api/subscribe`,user,{
+      const res = await axios.post(`/api/subscribe`,user,{
         headers:{
           "Content-Type":"application/json"
         },
