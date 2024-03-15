@@ -1,0 +1,25 @@
+.container{
+    max-width: 100%;
+    margin: 0 auto; 
+}
+
+.image {
+    width: 500px;  
+    height: 300px;  
+    display: block;
+}
+
+@media screen and (max-width: 768px) {
+    .image {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+ 
+@media screen and (min-width: 769px) {
+    .image {
+        max-width: 80%;
+        height: auto;
+    }
+}
