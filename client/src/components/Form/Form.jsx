@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import styles from './Form.module.css';
-import axios from 'axios';
-import toast from 'react-hot-toast';
+import { useState } from "react";
+import styles from "./Form.module.css";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const Form = () => {
-  const [email, setEmail] = useState(''); 
+  const [email, setEmail] = useState("");
 
   // Function to handle changes in the email input field
   const handleEmailChange = (e) => {
@@ -14,22 +14,23 @@ const Form = () => {
   // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try{
-      const user = {email}
-      const res = await axios.post(`/api/subscribe`,user,{
-        headers:{
-          "Content-Type":"application/json"
+    try {
+      const user = { email };
+      const res = await axios.post(`/api/subscribe`, user, {
+        headers: {
+          "Content-Type": "application/json",
         },
         // withCredentials:true
-      })
-      console.log(res.data)
-      if(res.data.success){
+      });
+      
+      if (res.data.success) {
         toast.success(res.data.message)
+        alert(res.data.message)
       }
-    }catch(error){
-      console.log("Subscription error"+error)
-    }finally{
-      setEmail("")
+    } catch (error) {
+      console.log("Subscription error" + error);
+    } finally {
+      setEmail("");
     }
   };
 
@@ -42,7 +43,9 @@ const Form = () => {
         onChange={handleEmailChange}
         className={styles.input}
       />
-      <button type="submit" className={styles.button}>Subscribe</button>
+      <button type="submit" className={styles.button}>
+        Subscribe
+      </button>
     </form>
   );
 };
