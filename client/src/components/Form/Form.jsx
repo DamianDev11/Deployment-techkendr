@@ -25,9 +25,10 @@ const Form = () => {
       
       if (res.data.success) {
         toast.success(res.data.message)
-        alert(res.data.message)
+        
       }
     } catch (error) {
+      toast.error(`Error while making API request`)
       console.log("Subscription error" + error);
     } finally {
       setEmail("");
